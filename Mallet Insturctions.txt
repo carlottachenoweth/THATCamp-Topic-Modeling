@@ -1,0 +1,40 @@
+#Go to your desktop in the command line 
+
+cd Desktop
+
+#First download Mallet from github
+
+git clone https://github.com/mimno/Mallet.git
+
+#Download Apache Ant (necessary for building Mallet 2.0 development release) and install if you don't have it: http://ant.apache.org/bindownload.cgi
+#Might need the Java Developer's kit http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+#move to new Mallet folder
+
+cd Mallet
+
+#build Mallet
+
+ant
+
+#ant should finish with "BUILD SUCCESSFUL"
+
+#to see the full list of Mallet commands
+
+bin/mallet
+
+#we need to download our sample data - Mayakovsky's "A Cloud in Trousers"
+
+git clone https://github.com/carlottachenoweth/THATCamp-Topic-Modeling.git
+
+
+#make a mallet file from your txt, this prepares data for training
+
+bin/mallet import-dir --input THATCamp-Topic-Modeling/Mayak --output Mayak.mallet --keep-sequence --remove-stopwords --stoplist-file THATCamp-Topic-Modeling/ru.txt
+
+#train your topics!
+
+bin/mallet train-topics --input Mayak.mallet --num-topics 20
+
+
+
