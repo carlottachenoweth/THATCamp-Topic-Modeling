@@ -34,7 +34,7 @@ bin/mallet import-dir --input THATCamp-Topic-Modeling/Mayak --output Mayak.malle
 
 #train your topics!
 
-bin/mallet train-topics --input Mayak.mallet --num-topics 20
+bin/mallet train-topics --input Mayak.mallet --num-topics 30 --num-top-words 10
 
 
 
